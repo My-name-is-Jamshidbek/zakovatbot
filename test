@@ -1,0 +1,38 @@
+import random
+
+# Riddle database
+riddles = [
+    {'riddle': 'I am not alive, but I grow; I don't have lungs, but I need air; I don't have a mouth, but water kills me. What am I?', 'answer': 'fire'},
+    {'riddle': 'I am light as a feather, yet even the world's strongest man couldn't hold me for much longer than a minute. What am I?', 'answer': 'breath'},
+    {'riddle': 'I am not alive, but I grow; I don't have lungs, but I need air; I don't have a mouth, but water kills me. What am I?', 'answer': 'fire'},
+    {'riddle': 'I go in hard, come out soft, and am never the same. What amm I?', 'answer': 'chewing gum'},
+]
+
+# Function to get a random riddle from the database
+def get_random_riddle():
+    riddle = random.choice(riddles)
+    return riddle['riddle'], riddle['answer']
+
+# Function to play a round of the game
+def play_round(player1, player2):
+    # Get a random riddle
+    riddle, answer = get_random_riddle()
+
+    # Player 1 poses the riddle to player 2
+    print(f'{player1}: {riddle}')
+    player2_answer = input(f'{player2}, what is your answer? ')
+
+    # Check if the answer is correct
+    if player2_answer.lower() == answer:
+        print(f'Correct! {player2} wins the round.')
+        return player2
+    else:
+        print(f'Incorrect. The correct answer is "{answer}". {player1} wins the round.')
+        return player1
+
+if __name__ == '__main__':
+    # Set the player names
+    player1 = 'Alice'
+    player2 = 'Bob'
+
+    # Play the
